@@ -6,7 +6,6 @@ import { DesktopNav } from "./DesktopNav";
 import { MobileNav } from "./MobileNav";
 import AuthButtons from "./AuthButtons";
 import { CartButton } from "./CartButton";
-//import { SearchBar } from "./SearchBar"
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
@@ -23,7 +22,7 @@ export function Header() {
         <div className="pl-8-hidden md:flex md:flex-1 md:items-center md:justify-between">
           <DesktopNav />
           <div className="flex items-center space-x-4">
-            <AuthButtons isSignedIn={!!isSignedIn} />
+            <AuthButtons />
             <CartButton />
           </div>
         </div>
@@ -42,7 +41,6 @@ export function Header() {
       {/* Mobile navigation */}
       {isMenuOpen && (
         <MobileNav
-          isSignedIn={!!isSignedIn}
           onClose={() => setIsMenuOpen(false)}
         />
       )}

@@ -3,10 +3,6 @@ import Link from 'next/link';
 import { UserButton, useUser } from '@clerk/nextjs';
 import { Button } from '@/components/ui/button';
 
-interface AuthButtonsProps {
-  isSignedIn: boolean;
-}
-
 export default function AuthButtons() {
   const { isSignedIn } = useUser()
 

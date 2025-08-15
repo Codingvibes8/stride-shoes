@@ -14,7 +14,7 @@ export interface Toast {
 
 interface ToastProps {
   toast: Toast
-  onRemove: (id: string) => void
+  onRemoveAction: (id: string) => void
 }
 
 const toastIcons = {
@@ -32,18 +32,18 @@ const toastStyles = {
   info: "bg-blue-50 border-blue-200 text-blue-800 dark:bg-blue-900/20 dark:border-blue-800 dark:text-blue-200",
 }
 
-export function ToastComponent({ toast, onRemove }: ToastProps) {
+export function ToastComponent({ toast, onRemoveAction }: ToastProps) {
   const [isVisible, setIsVisible] = useState(true)
   const Icon = toastIcons[toast.type]
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(false)
-      setTimeout(() => onRemove(toast.id), 300)
+      setTimeout(() => onRemoveAction(toast.id), 300)
     }, toast.duration || 5000)
 
     return () => clearTimeout(timer)
-  }, [toast.id, toast.duration, onRemove])
+  }, [toast.id, toast.duration, onRemoveAction])
 
   return (
     <div
@@ -67,7 +67,7 @@ export function ToastComponent({ toast, onRemove }: ToastProps) {
               className="inline-flex rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2"
               onClick={() => {
                 setIsVisible(false)
-                setTimeout(() => onRemove(toast.id), 300)
+                setTimeout(() => onRemoveAction(toast.id), 300)
               }}
             >
               <X className="h-4 w-4" />

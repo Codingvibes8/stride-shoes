@@ -17,8 +17,12 @@ export interface Product {
 export interface CartItem {
   id: string
   product_id: string
+  variant_id: string
   user_id: string
   quantity: number
+  price: number
+  name: string
+  image: string
   size: string
   color: string
   created_at: string

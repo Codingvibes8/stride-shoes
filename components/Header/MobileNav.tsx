@@ -3,10 +3,9 @@ import { Search } from "lucide-react";
 
 interface MobileNavProps {
   onClose: () => void;
-  isSignedIn: boolean;
 }
 
-export function MobileNav({ onClose, isSignedIn }: MobileNavProps) {
+export function MobileNav({ onClose }: MobileNavProps) {
   return (
     <div className="sm:hidden border-t py-4 px-10 w-full top-16 z-50 bg-indigo-600">
       <nav className="flex flex-col space-y-4 h-[90vh]">
